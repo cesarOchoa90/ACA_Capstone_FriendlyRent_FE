@@ -1,6 +1,7 @@
 import { useAuth0 } from "@auth0/auth0-react";
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import Rentals from "./Rentals"
 
 const Dashboard = () => {
   const { user, isAuthenticated, isLoading } = useAuth0();
@@ -17,13 +18,17 @@ const Dashboard = () => {
         .then((data) => {
           console.log("data", data);
           if (data.length === 0) {
-            navigate("/sign-up");
+            navigate("/signup");
           }
         });
     }
   }, [isLoading, isAuthenticated, navigate,user]);
 
-  return <div>dashboard</div>;
+  return (<>
+  <div>dashboard</div>;
+  <Rentals/>
+  </>)
+
 };
 
 export default Dashboard;
