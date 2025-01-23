@@ -11,7 +11,7 @@ root.render(
     domain={process.env.REACT_APP_DOMAIN}
     clientId={process.env.REACT_APP_CLIENTID}
     authorizationParams={{
-      redirect_uri: "https://aca-capstone-friendly-rent-fe.vercel.app/"
+      redirect_uri: "https://aca-capstone-friendly-rent-fe.vercel.app/dashboard"
     }}
   >
     <BrowserRouter>
