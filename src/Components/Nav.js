@@ -23,7 +23,7 @@ export default function ButtonAppBar(props) {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            News
+            Friendly Rent
           </Typography>
           {props.loggedIn ? (
             <Button color="inherit">Log Out</Button>
