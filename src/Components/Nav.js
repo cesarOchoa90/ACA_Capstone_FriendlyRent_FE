@@ -26,7 +26,7 @@ export default function ButtonAppBar(props) {
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             Friendly Rent
           </Typography>
-          {props.loggedIn ? (
+          {props.loggedIn && (
             <Button
               color="inherit"
               onClick={() => {
@@ -35,8 +35,6 @@ export default function ButtonAppBar(props) {
             >
               Log Out
             </Button>
-          ) : (
-            <Button color="inherit">Login</Button>
           )}
         </Toolbar>
       </AppBar>
