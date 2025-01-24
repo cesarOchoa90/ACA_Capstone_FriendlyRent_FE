@@ -6,9 +6,10 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
+import { useAuth0 } from '@auth0/auth0-react';
 
 export default function ButtonAppBar(props) {
-  // useEffect(()=>, [props.loggedIn])
+  const { logout } = useAuth0();
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -26,7 +27,14 @@ export default function ButtonAppBar(props) {
             Friendly Rent
           </Typography>
           {props.loggedIn ? (
-            <Button color="inherit">Log Out</Button>
+            <Button
+              color="inherit"
+              onClick={() => {
+                logout({ logoutParams: { returnTo: window.location.origin } });
+              }}
+            >
+              Log Out
+            </Button>
           ) : (
             <Button color="inherit">Login</Button>
           )}
