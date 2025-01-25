@@ -10,7 +10,7 @@ const Dashboard = () => {
     if (isLoading) return;
     console.log(user);
     if (isAuthenticated) {
-      fetch("http://localhost:4003/users/" + user.sub)
+      fetch("https://aca-capstone-friendlyrent-be.onrender.com/users/" + user.sub)
         .then((response) => {
           console.log("response", response);
           return response.json();
