@@ -13,6 +13,7 @@ import { Routes, Route } from "react-router";
 import Home from "./Components/Home";
 import SignUp from "./Components/SignUp";
 import Dashboard from "./Components/Dashboard";
+import SavedList from "./Components/SavedList";
 // Write component imports here //
 
 // Start Router function here //
@@ -22,6 +23,7 @@ const Router = () => {
             <Route path="/" element={<Home/>}/>
             <Route path="/signup" element={<SignUp/>}/>
             <Route path="/dashboard" element={<Dashboard/>}/>
+            <Route path="/savedlist" element= {<SavedList/>}/>
         </Routes>
     )
 };

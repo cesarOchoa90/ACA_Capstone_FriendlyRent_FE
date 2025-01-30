@@ -28,7 +28,7 @@ const Dashboard = () => {
     <>
       <h1
         style={{
-          marginTop: 50,
+          marginTop: 60,
           marginBottom: 50,
           fontSize: 45,
         }}

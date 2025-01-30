@@ -1,14 +1,26 @@
 import * as React from 'react';
+import { useState } from 'react';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
+import FavoriteOutlinedIcon from '@mui/icons-material/FavoriteOutlined';
+import IconButton from '@mui/material/IconButton';
 
 
 const CardComponent = (props)=>{
   const rental = props.rental
+
+  const[isFavorite,setIsFavorite] = useState(false)
+
+  const handleFavoriteClick = () => {
+    setIsFavorite(!isFavorite);
+
+  }
+
  return (
     <Box sx={{ width: 275 }}>
       <Card variant="outlined">
@@ -26,6 +38,14 @@ const CardComponent = (props)=>{
       </CardContent>
       <CardActions>
         <Button size="small">Learn More</Button>
+
+        <IconButton onClick={handleFavoriteClick} aria-label="add to favorites"> {/* Use IconButton */}
+      {isFavorite ? (
+        <FavoriteOutlinedIcon /> // Show filled heart if isFavorite is true
+      ) : (
+        <FavoriteBorderOutlinedIcon /> // Show outlined heart if isFavorite is false
+      )}
+    </IconButton>
       </CardActions>
       </Card>
       </Box>
