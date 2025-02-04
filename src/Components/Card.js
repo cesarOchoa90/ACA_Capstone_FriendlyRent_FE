@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useAuth0 } from "@auth0/auth0-react";
 import { useState } from 'react';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
@@ -13,11 +14,28 @@ import IconButton from '@mui/material/IconButton';
 
 const CardComponent = (props)=>{
   const rental = props.rental
+  const { user } = useAuth0();
 
   const[isFavorite,setIsFavorite] = useState(false)
 
   const handleFavoriteClick = () => {
     setIsFavorite(!isFavorite);
+    fetch("http://localhost:4003/savedlists", 
+    // "https://aca-capstone-friendlyrent-be.onrender.com/savedlists",
+    {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        PropertyId:rental.id, UserId: user.sub
+      }),
+    })
+        .then((response) => {
+          console.log("response", response);
+          return response.json();
+        })
+        .then((data) => {
+          console.log("data", data);
+        });
 
   }
 
